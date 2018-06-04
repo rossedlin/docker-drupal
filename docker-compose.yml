@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  custom-drupal:
+    image: drupal:8.2
+    build: .
+    ports:
+      - '80:80' # expose 80 on host and sent to 80 in container
+  db:
+    image: postgres:9.6
+    volumes:
+      - drupal-data:/var/lib/postgresql/data
